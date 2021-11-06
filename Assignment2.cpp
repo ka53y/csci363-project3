@@ -120,7 +120,7 @@ int main()
     while (!stop) {
         std::cout << "Expression input or type 'quit' to exit: " << std::endl;
         std::cin >> userInfix;
-        if (userInfix == "quit") {
+        if (userInfix == "QUIT") {
             stop = true;
         }
         else {
