@@ -10,43 +10,10 @@ project (assignment2) {
 
   Source_Files {
     driver.cpp
-    addCommand.cpp
-    subtractCommand.cpp
-    Array.cpp
-    ArrayBase.cpp
-    Assignment2.cpp
-    Binary_Op_Command.cpp
-    Fixed_Array.cpp
-    Queue.cpp
-    Stack.cpp
-    divisionCommand.cpp
-    exe.cpp
-    modCommand.cpp
-    multiplyCommand.cpp
-    numberCommand.cpp
-    stackExprCommandFactory.cpp
-  }
-  Header_Files {
-    subtractCommand.h
-    Array.h
-    ArrayBase.h
-    Stack.h
-    Queue.h
-    Fixed_Array.h
-    Binary_Op_Command.h
-    Expr_Command.h
-    stackExprCommandFactory.h
-    numberCommand.h
-    multiplyComodCommand.hmmand.h
-    exe.h
-    exprCommandFactory.h
-    divisionCommand.h
-    addCommand.h    
   }
 
   Template_Files {
-    ArrayBase.cpp
-    Array.cpp
+    Fixed_Array.cpp
     Stack.cpp
   }
 }

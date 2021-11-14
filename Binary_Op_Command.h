@@ -23,7 +23,6 @@ class Binary_Op_Command: public Expr_Command {
 public:
 	virtual char getI();
 	virtual char command_id() = 0;
-	virtual void precedence(Stack<Expr_Command*>& thirdStack, Array<Expr_Command*>& out, int& track);
 	virtual void execute(void);
 	virtual int evaluate(int x, int y) const = 0;
 	Binary_Op_Command(Stack<int>& arr);

@@ -22,7 +22,6 @@ class Expr_Command {
 public:
 	virtual char getI() = 0;
 	virtual void execute(void) = 0;
-	virtual void precedence(Stack<Expr_Command*>& thirdStack, Array <Expr_Command*>& out, int& track) = 0;
 	
 };
 

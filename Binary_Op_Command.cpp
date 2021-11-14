@@ -31,10 +31,10 @@ char Binary_Op_Command::getI()
 
 void Binary_Op_Command::execute(void)
 {
-	int x = arr_.pop();
+	int x = arr_.pop(); //gets the values at top of stack
 	int y = arr_.pop();
-	int result = this->evaluate(x, y);
-	arr_.push(result);
+	int result = this->evaluate(x, y); //evalutes the top 2 values
+	arr_.push(result); //pushes result back onto stack
 }
 
 
@@ -42,123 +42,4 @@ void Binary_Op_Command::execute(void)
 Binary_Op_Command::~Binary_Op_Command(void)
 {
 	//delete this->arr_;
-}
-//this checks every case for which operators could be used and sets the precedence for each one
-void Binary_Op_Command::precedence(Stack<Expr_Command*>& thirdStack, Array<Expr_Command*>& out, int& track)
-{
-	
-	bool check = false;
-	while (!check) {
-		if (!thirdStack.is_empty()) {
-			x = thirdStack.pop();
-		}
-		else {
-			check = true;
-		}
-	}
-	if (!thirdStack.is_empty()) {
-		y = thirdStack.pop();
-		if (x->getI() == '%' && y->getI() == '%') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		} else if (x->getI() == '%' && y->getI() == '/') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		} else if (x->getI() == '%' && y->getI() == '*') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '+' && y->getI() == '*') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '+' && y->getI() == '/') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '+' && y->getI() == '%') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '+' && y->getI() == '-') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '+' && y->getI() == '+') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '-' && y->getI() == '*') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '-' && y->getI() == '/') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '-' && y->getI() == '%') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '-' && y->getI() == '+') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '-' && y->getI() == '-') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '*' && y->getI() == '*') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '*' && y->getI() == '/') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '*' && y->getI() == '%') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '/' && y->getI() == '/') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '/' && y->getI() == '*') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else if (x->getI() == '/' && y->getI() == '%') {
-			out[track] = y;
-			thirdStack.push(x);
-			track++;
-		}
-		else {
-			thirdStack.push(y);
-			thirdStack.push(x);
-			check = true;
-		}
-	}
-	else {
-		thirdStack.push(x);
-		check = true;
-	}
 }

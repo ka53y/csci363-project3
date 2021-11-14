@@ -66,13 +66,33 @@ void runArrayTests()
     std::cout << "Beginning Array Tests.\n";
     testArrayInitializers();
 }
-
+int priority(const std::string input) {
+    int prio = -1;
+    if (input == "/") {
+        prio = 1;
+    }
+    else if (input == "*") {
+        prio = 1;
+    }
+    else if (input == "%") {
+        prio = 1;
+    }
+    else if (input == "+") {
+        prio = 2;
+    }
+    else if (input == "-") {
+        prio = 2;
+    }
+    return prio;
+}
 bool findPost(const std::string& input, exprCommandFactory& fac, Array <Expr_Command*>& out) {
     int track = 0;
     int solution;
     Expr_Command* out1 = 0;
     Stack<Expr_Command*> third;
     std::string inp = input;
+    //loops through the input to determine what the command required is and if none of the commands
+    //are triggered then do a number command
     for (size_t i = 0; i < inp.size()-1; i++)
     {
         if (inp.at(i) == '%') {
@@ -89,6 +109,16 @@ bool findPost(const std::string& input, exprCommandFactory& fac, Array <Expr_Com
         }
         else if (inp.at(i) == '-') {
             out1 = fac.createSubtractCommand();
+        }
+        else if (inp.at(i) == '(') {
+            third.push(inp.at(i);
+        }
+        else if (inp.at(i) == ')') {
+            //pop until it finds a (
+            while (third.top() != "(") {
+                third.pop();
+           }
+            third.pop();
         }
         else
         {
@@ -120,7 +150,7 @@ int main()
     while (!stop) {
         std::cout << "Expression input or type 'quit' to exit: " << std::endl;
         std::cin >> userInfix;
-        if (userInfix == "QUIT") {
+        if (userInfix == "quit") {
             stop = true;
         }
         else {
