@@ -12,7 +12,7 @@
 #define _CS507_STACK_CPP_
 
 #include <iostream>
-#include "Stack.h"
+#include "Stack.h" //circular dependency error solve by removing this file from makefile and find where this is being called to trace the dependency error
 #include <exception>
 
 template <typename T>

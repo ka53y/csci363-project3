@@ -111,7 +111,7 @@ bool findPost(const std::string& input, exprCommandFactory& fac, Array <Expr_Com
             out1 = fac.createSubtractCommand();
         }
         else if (inp.at(i) == '(') {
-            third.push(inp.at(i);
+            third.push(inp.at(i));
         }
         else if (inp.at(i) == ')') {
             //pop until it finds a (
