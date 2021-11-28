@@ -6,11 +6,11 @@
 
 template<typename T>
 ArrayBase<T>::ArrayBase(void)
-    : data_(new T[10]),
+    : 
     cur_size_(0),
     max_size_(10)
 {
-    
+    this->data_ = new T[10];
 }
 
 template<typename T>
@@ -86,6 +86,7 @@ template <typename T>
 T ArrayBase <T>::get(size_t index) const
 {
     if (index >= 0 && index < cur_size_) {
+        std::cout << data_[index] << std::endl;
         return this->data_[index];
     }
     else {
@@ -189,21 +190,21 @@ void ArrayBase <T>::fill(T value)
 
 //
 // operator =
-//
+/**/
 template <typename T>
 const ArrayBase <T>& ArrayBase <T>::operator = (const ArrayBase& rhs)
 {
     if (this != &rhs) {
-        this->cur_size_ = rhs.size();
-        this->max_size_ = rhs.size();
-        //changed the iteration length to avoid the runtime error. 
-        for (size_t i = 0; i < this->cur_size_; i++)
-        {
-            this->data_[i] = rhs.get(i);
-        }
+        return *this;
     }
 
-    return *this;
+    this->cur_size_ = rhs.size();
+    this->max_size_ = rhs.size();
+    //changed the iteration length to avoid the runtime error. 
+    for (size_t i = 0; i < this->cur_size_; i++)
+    {
+        this->data_[i] = rhs.get(i);
+    }
 }
 
 #endif

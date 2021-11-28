@@ -22,7 +22,7 @@
 template <typename T>
 Queue <T>::Queue (void)
 {
-    this->data_ = new T[10];
+    ArrayBase<T>();
     //declares the variables with a new size_t implemented called track
     //to help keep track of where we are in queue like a manual increment
 }
@@ -54,7 +54,7 @@ void Queue<T>::enqueue(T element)
     }
     //resize the queue 
     this->end = this->end + 1;
-    this->data[this->end] = element;
+    this->data_[this->end] = element;
     this->cur_size_++;
 
 }
@@ -72,7 +72,7 @@ void Queue<T>::dequeue(void) {
 template<typename T>
 bool Queue<T>::is_empty(void) const
 {
-    if (is_empty()) {
+    if (cur_size_==0) {
         return true;
     }
     else {
@@ -92,7 +92,7 @@ template<typename T>
 void Queue<T>::clear() {
     this->beg = 0;
     this->end = 0;
-    this->track = 0;
+    //this->track = 0;
     this->cur_size_ = 0;
     //instead of doing the below way save energy by just resetting the variables
     //checks if the data is empty if yes then throws exception

@@ -21,9 +21,13 @@ size_t Stack <T>::size (void) const
 //
 template <typename T>
 inline
-T Stack <T>::top (void) const
+Array<char> Stack <T>::top (void) const
 {
-
+	//char returnval = this->data_[track];
+	if (data_ == NULL) {
+		std::cout << "empty" << std::endl;
+	}
+	return this->data_[track];
 }
 
 //
@@ -33,5 +37,10 @@ template <typename T>
 inline
 bool Stack <T>::is_empty (void) const
 {
-
+	if (track == -1) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }

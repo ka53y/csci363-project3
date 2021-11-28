@@ -67,6 +67,7 @@ public:
   const Fixed_Array & operator = (const Fixed_Array <T, M> & rhs);
 };
 
+
 // include the inline files
 #include "Fixed_Array.inl"
 

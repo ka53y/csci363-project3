@@ -12,7 +12,7 @@
 #define _CS507_STACK_CPP_
 
 #include <iostream>
-#include "Stack.h" //circular dependency error solve by removing this file from makefile and find where this is being called to trace the dependency error
+#include "Stack.h"
 #include <exception>
 
 template <typename T>
@@ -69,20 +69,14 @@ void Stack <T>::push (T element)
 // pop
 //
 template <typename T>
-T Stack <T>::pop (void)
+void Stack <T>::pop (void)
 {
-    if (track == -1) {
+    if(track == -1) {
         throw empty_exception();
-
+    } else {
+        track--;
     }
-    track--;
-    return data_[track];
     
-    
-}
-template <typename T>
-T Stack <T>::top(void) const {
-    return data_[track - 1];
 }
 
 //

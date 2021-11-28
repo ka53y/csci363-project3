@@ -12,8 +12,9 @@
 // Fixed_Array
 //
 template <typename T, size_t N>
-Fixed_Array <T, N>::Fixed_Array (void) : ArrayBase()
+Fixed_Array <T, N>::Fixed_Array (void) 
 {
+    ArrayBase<T>();
    /* data_ = nullptr;
     cur_size_ = 0;
     max_size_ = 0;*/

@@ -82,7 +82,7 @@ public:
    *
    * @exception      empty_exception    The stack is empty.
    */
-  T pop (void);
+  void pop (void);
 
   /**
    * Get the top-most element on the stack. If there are no element 
@@ -91,7 +91,7 @@ public:
    * @return         Element on top of the stack.
    * @exception      empty_exception    The stack is empty
    */
-  T top (void) const;
+  Array<char> top (void) const;
 
   /**
    * Test if the stack is empty
